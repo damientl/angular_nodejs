@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = ['$http','$q', function($http, $q) {
+module.exports = ['$http','$q', 'api', function($http, $q, api) {
 
     this.getRestaurants = function() {
         return getRestaurants().then(function(response) {
@@ -11,7 +11,7 @@ module.exports = ['$http','$q', function($http, $q) {
     }
 
     function getRestaurants(){
-        return $http.post("http://localhost:8080/restaurants");
+        return $http.post(api + "/restaurants");
     }
 
     this.voteRestaurant = function(id, userId, week){
@@ -30,7 +30,7 @@ module.exports = ['$http','$q', function($http, $q) {
     }
 
     function voteRestaurant(data){
-        return $http.post("http://localhost:8080/voteRestaurant", data);
+        return $http.post(api + "/voteRestaurant", data);
     }
 
     this.getChoosenRestaurant = function(week) {
@@ -43,9 +43,8 @@ module.exports = ['$http','$q', function($http, $q) {
     }
 
     function getChoosenRestaurant(data){
-        return $http.post("http://localhost:8080/getChoosenRestaurant", data);
+        return $http.post(api + "/getChoosenRestaurant", data);
     }
-
 
     this.reset = function() {
         return reset().then(function(response) {
@@ -56,7 +55,7 @@ module.exports = ['$http','$q', function($http, $q) {
     }
 
     function reset(){
-        return $http.post("http://localhost:8080/reset");
+        return $http.post(api + "/reset");
     }
 
 }]

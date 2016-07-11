@@ -10,6 +10,13 @@ var app = angular.module('restaurantApp', [ 'ngMaterial', 'ngRoute']);
 
 app.config(require('./routes'));
 
+app.provider('api', require('./provider/apiProvider'));
+
+
+app.config(["apiProvider", function(apiProvider) {
+  apiProvider.endPoint('http://localhost/api');
+}]);
+
 app.controller('chooseRestaurantCtrl', require('./controller/chooseRestaurantCtrl'));
 app.controller('choosenRestaurantCtrl', require('./controller/choosenRestaurantCtrl'));
 app.controller('testCaseCtrl', require('./controller/testCaseCtrl'));
