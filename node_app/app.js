@@ -31,7 +31,8 @@ router.get('/', function(req, res) {
 
 	var rests = [r1, r2];
 
-	new AppDAO().findRestaurant()
+	new AppDAO().connect();
+	new AppDAO().testPromise();
 
 	res.json(rests);
     //res.json({ message: 'hooray! welcome to our api!' });   
