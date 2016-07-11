@@ -5,6 +5,7 @@
 // =============================================================================
 
 var Restaurant = require('./model/Restaurant');
+var AppDAO = require('./dao/AppDAO');
 
 // call the packages we need
 var express    = require('express');        // call express
@@ -29,6 +30,8 @@ router.get('/', function(req, res) {
 	var r2 = new Restaurant(2,"apple bees");
 
 	var rests = [r1, r2];
+
+	new AppDAO().findRestaurant()
 
 	res.json(rests);
     //res.json({ message: 'hooray! welcome to our api!' });   
