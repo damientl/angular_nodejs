@@ -8,7 +8,8 @@ module.exports = class AppDAO {
         this.con = mysql.createConnection({
           host: "localhost",
           user: "a",
-          password: "a"
+          password: "a",
+          database: "sitepoint"
         });
 
         this.con.connect(function(err){
