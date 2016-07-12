@@ -14,7 +14,7 @@ app.provider('api', require('./provider/apiProvider'));
 
 
 app.config(["apiProvider", function(apiProvider) {
-  apiProvider.endPoint('http://localhost/api');
+  apiProvider.endPoint('http://localhost:8080/api');
 }]);
 
 app.controller('chooseRestaurantCtrl', require('./controller/chooseRestaurantCtrl'));
